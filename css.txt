@@ -1,0 +1,21 @@
+:root {
+  --brown-dark: #4B3621;      /* Main text, icons */
+  --beige-warm: #F5E5D0;      /* Backgrounds, resting areas */
+  --brown-medium: #C18C5D;    /* Secondary buttons, hover */
+  --mustard-soft: #E0B252;    /* Highlights, tags */
+  --purple-accent: #7A4BC2;   /* Primary buttons, links, CTAs */
+  --lavender-light: #E6DAF8;  /* Secondary backgrounds */
+}
+
+
+body {
+  background-color: var(--beige-warm);
+  color: var(--brown-dark);
+}
+button.primary {
+  background-color: var(--purple-accent);
+  color: white;
+}
+button.secondary:hover {
+  background-color: var(--brown-medium);
+}
