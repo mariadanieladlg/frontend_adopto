@@ -1,27 +1,35 @@
-/*Global Styles*/
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Nunito:wght@300;400;600&display=swap");
 
 * {
-  font-family: inherit;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: inherit;
-  background-color: #f5e5d0;
-  color: #4b3621;
+  font-family: "Nunito", sans-serif; /* Main Text */
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #fcf9f5;
 }
 
-/*GLOBAL GRID
-
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cormorant Garamond", serif;
+  color: #040404;
+  letter-spacing: 0.5px;
 }
 
-main {
-  min-height: calc(100vh - 120px);
-}*/
+h1 {
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #fff;
+}

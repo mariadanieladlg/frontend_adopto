@@ -1,5 +1,23 @@
 import "./Navbar.css";
+import navLogo from "/public/logo-adopto.png";
 
-const Navbar = () => {};
+const Navbar = () => {
+  return (
+    <nav className="navbar">
+      {/* Logo left */}
+      <div className="logo">
+        <img src={navLogo} alt="Pet Adoption Logo" />
+      </div>
+
+      {/* Links right*/}
+      <ul className="nav-links">
+        <li>Cats & Kittens</li>
+        <li>Dogs & Puppies</li>
+        <li>The Paw-trol</li>
+        <li>Sign In</li>
+      </ul>
+    </nav>
+  );
+};
 
 export default Navbar;

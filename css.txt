@@ -1,12 +1,11 @@
 :root {
   --brown-dark: #4B3621;      /* Main text, icons */
-  --beige-warm: #F5E5D0;      /* Backgrounds, resting areas */
+  --beige-warm: #FCF9F5;      /* Backgrounds, resting areas */
   --brown-medium: #C18C5D;    /* Secondary buttons, hover */
   --mustard-soft: #E0B252;    /* Highlights, tags */
   --purple-accent: #7A4BC2;   /* Primary buttons, links, CTAs */
   --lavender-light: #E6DAF8;  /* Secondary backgrounds */
 }
-
 
 body {
   background-color: var(--beige-warm);
@@ -18,4 +17,18 @@ button.primary {
 }
 button.secondary:hover {
   background-color: var(--brown-medium);
+}
+
+:root {
+  /* Paleta Aconchego e Confiança */
+  --color-primary: #C5620B;     
+  --color-secondary: #FCB861;   
+  --color-dark: #6A2B09;        
+  --color-neutral: #6F7781;    
+  --color-background: #FFFFFF;  
+  --color-text: #040404;        
+
+  /* Novas cores de apoio */
+  --color-accent-purple: #402742; /* roxo profundo (confiança, acolhimento) */
+  --color-accent-blue: #114F5A;   /* azul petróleo (tranquilidade, elegância) */
 }
