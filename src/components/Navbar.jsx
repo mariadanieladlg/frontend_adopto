@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 import navLogo from "/public/logo-adopto.png";
 
 const Navbar = () => {
@@ -14,7 +15,9 @@ const Navbar = () => {
         <li>Cats & Kittens</li>
         <li>Dogs & Puppies</li>
         <li>The Paw-trol</li>
-        <li>Sign In</li>
+        <li>
+          <Link to="/Account">Account</Link>
+        </li>
       </ul>
     </nav>
   );

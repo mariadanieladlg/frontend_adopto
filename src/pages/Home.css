@@ -1,5 +1,5 @@
 .home {
-  min-height: 100vh; /* full screen */
+  min-height: 95vh; /* full screen */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,13 +8,13 @@
 
 .home-title {
   text-align: center;
-  margin-bottom: 8rem;
+  margin-bottom: 7rem;
 }
 
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 1.5rem;
+  gap: 8rem;
   width: 80%;
   max-width: 1000px;
 }

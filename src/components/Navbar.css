@@ -4,7 +4,10 @@
   align-items: center;
   padding: 0.2rem 3rem;
   background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 0.4px solid #e5e7eb;
 }
 
 .logo img {
@@ -16,7 +19,7 @@
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 11rem;
+  gap: 10.5rem;
 }
 
 .nav-links li {

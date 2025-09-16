@@ -3,8 +3,6 @@ import petPhoto1 from "/public/photo1.png";
 import petPhoto4 from "/public/photo4.png";
 import petPhoto5 from "/public/photo5.png";
 
-const photos = [petPhoto1, petPhoto4, petPhoto5];
-
 const Home = () => {
   return (
     <section className="home">
