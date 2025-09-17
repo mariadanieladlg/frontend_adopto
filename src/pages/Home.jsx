@@ -1,7 +1,7 @@
 import "./Home.css";
-import petPhoto1 from "/public/photo1.png";
-import petPhoto4 from "/public/photo4.png";
-import petPhoto5 from "/public/photo5.png";
+import petPhoto1 from "../assets/photo1.png";
+import petPhoto4 from "../assets/photo4.png";
+import petPhoto5 from "../assets/photo5.png";
 
 const Home = () => {
   return (
