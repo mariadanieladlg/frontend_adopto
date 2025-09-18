@@ -1,0 +1,25 @@
+/* Main Container */
+.dog-puppies-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12rem 2rem;
+  min-height: 95vh;
+  text-align: center;
+}
+
+/* Title */
+.dog-puppies-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+}
+
+/* Text  */
+.dog-puppies-text {
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 600px;
+}

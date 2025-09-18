@@ -12,8 +12,12 @@ const Navbar = () => {
 
       {/* Links right*/}
       <ul className="nav-links">
-        <li>Cats & Kittens</li>
-        <li>Dogs & Puppies</li>
+        <li>
+          <Link to="/cat-kittens">Cat & Kittens</Link>
+        </li>
+        <li>
+          <Link to="/dog-puppies">Dogs & Puppies</Link>
+        </li>
         <li>The Paw-trol</li>
         <li>
           <Link to="/Account">Account</Link>
