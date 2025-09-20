@@ -1,0 +1,36 @@
+.pet-card {
+  background: #fff;
+  border-radius: 0px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.pet-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.pet-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.pet-card-info {
+  padding: 12px;
+}
+
+.pet-card-name {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.pet-card-meta {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: #555;
+}
