@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import PetCard from "../components/PetCard";
 import "./CatKittens.css";
 
-const API = "http://localhost:4000/pets"; // cambia al puerto que uses
+const API = "http://localhost:5005/pets"; // cambia al puerto que uses
 
 const CatKittens = () => {
   const [cats, setCats] = useState([]);
