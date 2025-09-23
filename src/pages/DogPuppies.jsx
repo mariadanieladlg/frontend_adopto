@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import PetCard from "../components/PetCard";
 import "./DogPuppies.css";
 
-const API = "http://localhost:4000/pets";
+const API = "http://localhost:5005/pets";
 
 const DogPuppies = () => {
   const [dogs, setDogs] = useState([]);
