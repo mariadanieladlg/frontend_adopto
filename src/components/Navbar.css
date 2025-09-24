@@ -33,3 +33,15 @@
 .nav-links li:hover {
   color: #114f5a;
 }
+
+.account-link {
+  color: #040404;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s, color 0.3s;
+}
+
+.account-link:hover {
+  color: #114f5a;
+  transform: scale(1.1);
+}

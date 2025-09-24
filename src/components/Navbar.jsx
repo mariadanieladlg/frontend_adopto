@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import { RiUserLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import navLogo from "../assets/logo-adopto.png";
 
@@ -20,7 +21,9 @@ const Navbar = () => {
         </li>
         <li>The Paw-trol</li>
         <li>
-          <Link to="/Account">Account</Link>
+          <Link to="/Account" className="account-link">
+            <RiUserLine size={28} />
+          </Link>
         </li>
       </ul>
     </nav>
