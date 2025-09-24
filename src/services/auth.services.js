@@ -1,4 +1,4 @@
-import api from "../api";
+import api from "./api";
 
 // VERIFY USER
 const verify = async (token, setUser) => {
