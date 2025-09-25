@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import PetCard from "../components/PetCard";
 import "./CatKittens.css";
 
-const API = "http://localhost:5005/pets"; // cambia al puerto que uses
+const API = "http://localhost:5005/pets";
 
 const CatKittens = () => {
   const [cats, setCats] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${API}?species=cat`) // <-- filtramos gatos
+    fetch(`${API}?species=cat`)
       .then((res) => res.json())
       .then((data) => {
         setCats(data);

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./PetCard.css";
 
 const PetCard = ({ pet }) => {
@@ -14,7 +15,9 @@ const PetCard = ({ pet }) => {
         className="pet-card-image"
       />
       <div className="pet-card-info">
-        <h3 className="pet-card-name">{pet.name}</h3>
+        <h3 className="pet-card-name">
+          <Link to={`/pets/${pet.id}`}>{pet.name}</Link>
+        </h3>
         <p className="pet-card-meta">
           {ageDisplay} • {pet.sex}
         </p>
