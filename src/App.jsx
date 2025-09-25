@@ -9,8 +9,10 @@ import DogPuppies from "./pages/DogPuppies.jsx";
 import Account from "./pages/Account.jsx";
 import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
+import PetCardDetails from "./components/PetCardDetails.jsx";
 
 import "./App.css";
+import { EditPage } from "./pages/EditPage.jsx";
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
         <Route path="/dog-puppies" element={<DogPuppies />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/pets/:id" element={<PetCardDetails />} />
+        <Route path="/edit/:id" element={<EditPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
