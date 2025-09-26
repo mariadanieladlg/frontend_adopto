@@ -1,22 +1,46 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../context/AuthContext"; // <- use o hook do contexto
 import "./Account.css";
-import { signin, register } from "../services/auth.services";
 
 const Account = () => {
   const [activeTab, setActiveTab] = useState("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [user, setUser] = useState(null); // SAVE LOGGED USER
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/"; // volta pra origem ou Home
+
+  const { signIn, signUp, user } = useAuth();
 
   // HANDLE SIGNIN
   const handleSignin = async (e) => {
-    await signin({ loginInfo: email, password }, setUser, e);
+    e.preventDefault();
+    const { ok, error } = await signIn({ loginInfo: email, password });
+    if (ok) {
+      setPassword("");
+      navigate(from, { replace: true }); // Home ou rota originalmente requisitada
+    } else {
+      console.error("Signin failed:", error);
+      // aqui você pode setar um estado de erro para mostrar na UI
+    }
   };
 
   // HANDLE REGISTER
   const handleRegister = async (e) => {
-    await register({ username, email, password }, setActiveTab, e);
+    e.preventDefault();
+    const { ok, error } = await signUp({ username, email, password });
+    if (ok) {
+      // após registrar, volte para a aba de Sign In
+      setActiveTab("signin");
+      // opcional: limpar campos
+      setPassword("");
+    } else {
+      console.error("Register failed:", error);
+      // idem: exibir erro na UI se quiser
+    }
   };
 
   return (
@@ -49,6 +73,7 @@ const Account = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              autoComplete="email"
             />
             <input
               type="password"
@@ -56,6 +81,7 @@ const Account = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              autoComplete="current-password"
             />
             <button type="submit">Sign In</button>
           </form>
@@ -67,6 +93,7 @@ const Account = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
+              autoComplete="name"
             />
             <input
               type="email"
@@ -74,6 +101,7 @@ const Account = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              autoComplete="email"
             />
             <input
               type="password"
@@ -81,19 +109,12 @@ const Account = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              autoComplete="new-password"
             />
             <button type="submit">Create Account</button>
           </form>
         )}
       </div>
-
-      {/* Debug / Info */}
-      {user && (
-        <div className="account-user">
-          <p>Welcome, {user.username}!</p>
-          <p>Email: {user.email}</p>
-        </div>
-      )}
     </div>
   );
 };
