@@ -19,10 +19,17 @@ const Navbar = () => {
         <li>
           <Link to="/dog-puppies">Dogs & Puppies</Link>
         </li>
-        <li>The Paw-trol</li>
         <li>
-          <Link to="/Account" className="account-link">
+          <Link to="/paw">The Paw-trol</Link>
+        </li>
+        <li>
+          <Link to="/account" className="account-link">
             <RiUserLine size={28} />
+          </Link>
+        </li>
+        <li>
+          <Link to="/pets/add" className="add-btn">
+            + Add
           </Link>
         </li>
       </ul>
