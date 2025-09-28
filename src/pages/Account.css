@@ -19,7 +19,7 @@
 /* TABS */
 .account-tabs {
   display: flex;
-  gap: 8rem;
+  gap: 5rem;
   margin-bottom: 2rem;
 }
 

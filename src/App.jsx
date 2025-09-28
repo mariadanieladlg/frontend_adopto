@@ -6,15 +6,13 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home.jsx";
 import CatKittens from "./pages/CatKittens";
 import DogPuppies from "./pages/DogPuppies";
-import Account from "./pages/Account.jsx";
 import ProfilePage from "./pages/ProfilePage";
+import AdminAccount from "./pages/AdminAccount";
 import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
 import PetCardDetails from "./components/PetCardDetails.jsx";
-import ProtectedRoute from "./components/ProtectedRoute";
-
-import "./App.css";
 import { EditPage } from "./pages/EditPage.jsx";
+import "./App.css";
 
 const App = () => {
   return (
@@ -25,15 +23,10 @@ const App = () => {
         <Route path="/cat-kittens" element={<CatKittens />} />
         <Route path="/dog-puppies" element={<DogPuppies />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/account" element={<Account />} />
+        <Route path="/admin" element={<AdminAccount />} />
         <Route path="/pets/:id" element={<PetCardDetails />} />
         <Route path="/edit/:id" element={<EditPage />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="*" element={<NotFound />} />
-        {/* Protected Routes*/}
-        <Route element={<ProtectedRoute />}>
-          <Route path="/profile" element={<ProfilePage />} />
-        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
