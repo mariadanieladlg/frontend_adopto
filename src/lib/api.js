@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5005", //BACKEND PORT
+  baseURL: "http://localhost:5005", // BACKEND PORT
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 // ADD JWT TOKEN, IF EXISTS

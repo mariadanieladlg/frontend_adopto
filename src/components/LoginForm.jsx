@@ -1,39 +1,36 @@
 import { useState } from "react";
+import { useAuthContext } from "../context/Auth.context";
 
-const LoginForm = ({ setToggle }) => {
+const LoginForm = () => {
+  const { login } = useAuthContext();
   const [body, setBody] = useState({ email: "", password: "" });
 
   const handleChange = (e) => {
     setBody((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    login(body, e);
-  };
-
   return (
     <div className="account-content">
-      <form className="account-form" onSubmit={handleSubmit}>
+      <form className="account-form" onSubmit={(e) => login(body, e)}>
         <label htmlFor="email">Email</label>
         <input
-          type="text"
+          className="input-field"
+          type="email"
           name="email"
-          value={body.email}
           onChange={handleChange}
-          required
         />
 
         <label htmlFor="password">Password</label>
         <input
+          className="input-field"
           type="password"
           name="password"
-          value={body.password}
           onChange={handleChange}
-          required
         />
 
-        <button type="submit">Sign In</button>
+        <button className="btn-submit" type="submit">
+          Sign In
+        </button>
       </form>
     </div>
   );

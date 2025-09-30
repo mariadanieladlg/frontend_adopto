@@ -1,26 +1,26 @@
 import { useState } from "react";
-import SignInForm from "../components/SignInForm";
-import RegisterForm from "../components/RegisterForm";
+import LoginForm from "../components/LoginForm";
+import SignupForm from "../components/SignupForm";
 import "./Account.css";
 
 const AdminAccount = () => {
-  const [activeTab, setActiveTab] = useState("signin");
+  const [activeTab, setActiveTab] = useState("login");
 
   return (
     <div className="account-page">
-      <h2 className="account-title">Hi, Welcome to the admin area</h2>
+      <h2 className="account-title">Admin Account</h2>
 
       {/* TABS */}
       <div className="account-tabs">
         <button
-          className={activeTab === "signin" ? "active" : ""}
-          onClick={() => setActiveTab("signin")}
+          className={activeTab === "login" ? "active" : ""}
+          onClick={() => setActiveTab("login")}
         >
           Sign In
         </button>
         <button
-          className={activeTab === "register" ? "active" : ""}
-          onClick={() => setActiveTab("register")}
+          className={activeTab === "signup" ? "active" : ""}
+          onClick={() => setActiveTab("signup")}
         >
           Register
         </button>
@@ -28,10 +28,10 @@ const AdminAccount = () => {
 
       {/* DYNAMIC CONTENT */}
       <div className="account-content">
-        {activeTab === "signin" ? (
-          <SignInForm />
+        {activeTab === "login" ? (
+          <LoginForm />
         ) : (
-          <RegisterForm setToggle={setActiveTab} />
+          <SignupForm setToggle={setActiveTab} />
         )}
       </div>
     </div>
