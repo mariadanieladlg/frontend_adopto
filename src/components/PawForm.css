@@ -1,0 +1,86 @@
+.paw-form {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.paw-form h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.grid2 label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.grid2 .full {
+  grid-column: 1 / -1;
+}
+
+.grid2 input,
+.grid2 select,
+.grid2 textarea {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+.grid2 textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.preview {
+  margin-top: 8px;
+  width: 160px;
+  height: 160px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.paw-form .msg {
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+
+.paw-form .msg.error {
+  color: #dc2626;
+}
+.paw-form .msg.ok {
+  color: #16a34a;
+}
+
+.paw-form button {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #000;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+}
+
+.paw-form button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}

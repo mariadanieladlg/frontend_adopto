@@ -11,6 +11,7 @@ import ProfilePage from "./pages/ProfilePage";
 import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
 import PetCardDetails from "./components/PetCardDetails.jsx";
+import Paw from "./pages/Paw";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 import "./App.css";
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/account" element={<Account />} />
         <Route path="/pets/:id" element={<PetCardDetails />} />
         <Route path="/edit/:id" element={<EditPage />} />
+        <Route path="/paw" element={<Paw />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="*" element={<NotFound />} />
         {/* Protected Routes*/}
