@@ -8,9 +8,14 @@ const verify = async (token, setUser) => {
     return;
   }
   try {
-    const response = await api.get("/auth/verify"); // CORRECT ROUTE TO BACKEND
+    const response = await api.get("/auth/verify", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     if (response.status === 200) {
-      setUser(response.data.payload); // PAYLOAD COMING FROM BACKEND
+      setUser(response.data.payload);
+    } else if (response.status === 304) {
+      const cachedUser = JSON.parse(localStorage.getItem("userData"));
+      setUser(cachedUser || null);
     }
   } catch (error) {
     console.log("Verify error:", error);
@@ -18,7 +23,6 @@ const verify = async (token, setUser) => {
     localStorage.removeItem("authToken");
   }
 };
-
 // REGISTER
 const register = async (body, setToggle, e) => {
   if (e) e.preventDefault();
@@ -39,10 +43,12 @@ const signin = async (body, setUser, e) => {
     const response = await api.post("/auth/signin", body); // CORRECT ROUTE TO BACKEND
     if (response.status === 200 || response.status === 201) {
       localStorage.setItem("authToken", response.data.authToken);
-      verify(response.data.authToken, setUser); // UPDATE USER STATE
+      await verify(response.data.authToken, setUser); // UPDATE USER STATE
+      return true;
     }
   } catch (error) {
     console.log("Signin error:", error);
+    return false;
   }
 };
 
