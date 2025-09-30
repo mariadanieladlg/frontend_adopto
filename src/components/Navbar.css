@@ -45,3 +45,15 @@
   color: #114f5a;
   transform: scale(1.1);
 }
+.add-btn {
+  padding: 6px 14px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.add-btn:hover {
+  background-color: #45a049;
+}

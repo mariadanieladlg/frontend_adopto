@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 32px 16px;
   padding-top: 140px;
+  padding-bottom: 110px;
 }
 
 .topbar {
@@ -125,12 +126,47 @@
   font-weight: 700;
 }
 
+/* CONTACT INFO + ACTIONS */
 .cta {
-  display: flex;
-  gap: 8px;
+  display: grid;
+  gap: 12px;
   margin-top: 16px;
 }
-.btn {
+
+/* CONTACT INFO AS TEXT */
+.contact-info {
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.contact-info .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.contact-info .label {
+  color: #6a6773;
+  font-weight: 500;
+}
+
+.contact-info .value {
+  font-weight: 600;
+}
+
+/*(Delete/Edit) */
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.actions .btn {
   flex: 1;
   text-align: center;
   padding: 12px 14px;
@@ -139,10 +175,22 @@
   color: #fff;
   font-weight: 600;
   text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.02s ease;
 }
-.btn.ghost {
-  background: #f3f3f3;
-  color: #222;
+
+.actions .btn:hover {
+  opacity: 0.9;
+}
+
+.actions .btn:active {
+  transform: translateY(1px);
+}
+
+/* Red DELETE */
+.actions .btn.danger {
+  background: #b91c1c;
+  border: 1px solid #991b1b;
 }
 
 h2 {

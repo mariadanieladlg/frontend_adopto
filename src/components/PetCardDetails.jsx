@@ -179,23 +179,44 @@ export default function PetCardDetails() {
           </div>
 
           <div className="cta">
-            {pet.contact?.email && (
-              <a
-                className="btn"
-                href={`mailto:${pet.contact.email}?subject=Adoption inquiry: ${pet.name}`}
-              >
-                Contact via Email
-              </a>
-            )}
-            {pet.contact?.phone && (
-              <a className="btn ghost" href={`tel:${pet.contact.phone}`}>
-                Call Shelter
-              </a>
-            )}
-            <button onClick={handleDelete}>Delete</button>
-            <button>
-              <Link to={`/edit/${id}`}>Edit</Link>
-            </button>
+            <div className="contact-info">
+              {pet.contact?.email && (
+                <div className="row">
+                  <span className="label">Email</span>
+                  <span className="value">
+                    <a
+                      className="contact-link"
+                      href={`mailto:${pet.contact.email}?subject=Adoption inquiry: ${pet.name}`}
+                    >
+                      {pet.contact.email}
+                    </a>
+                  </span>
+                </div>
+              )}
+
+              {pet.contact?.phone && (
+                <div className="row">
+                  <span className="label">Phone</span>
+                  <span className="value">
+                    <a
+                      className="contact-link"
+                      href={`tel:${pet.contact.phone}`}
+                    >
+                      {pet.contact.phone}
+                    </a>
+                  </span>
+                </div>
+              )}
+            </div>
+
+            <div className="actions">
+              <button className="btn danger" onClick={handleDelete}>
+                Delete
+              </button>
+              <Link className="btn" to={`/edit/${id}`}>
+                Edit
+              </Link>
+            </div>
           </div>
         </aside>
       </div>
