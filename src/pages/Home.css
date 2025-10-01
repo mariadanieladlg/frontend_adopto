@@ -1,5 +1,5 @@
 .home {
-  min-height: 95vh; /* full screen */
+  min-height: 64vh; /* full screen */
   display: flex;
   flex-direction: column;
   justify-content: center;

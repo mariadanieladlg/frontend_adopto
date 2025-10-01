@@ -1,5 +1,4 @@
 import "./Navbar.css";
-import { RiUserLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import navLogo from "../assets/logo-adopto.png";
 
@@ -8,7 +7,9 @@ const Navbar = () => {
     <nav className="navbar">
       {/* Logo left */}
       <div className="logo">
-        <img src={navLogo} alt="Pet Adoption Logo" />
+        <Link to="/">
+          <img src={navLogo} alt="Pet Adoption Logo" />
+        </Link>
       </div>
 
       {/* Links right*/}
@@ -23,14 +24,7 @@ const Navbar = () => {
           <Link to="/paw">The Paw-trol</Link>
         </li>
         <li>
-          <Link to="/account" className="account-link">
-            <RiUserLine size={28} />
-          </Link>
-        </li>
-        <li>
-          <Link to="/pets/add" className="add-btn">
-            + Add
-          </Link>
+          <Link to="/aboutus">About Us</Link>
         </li>
       </ul>
     </nav>
