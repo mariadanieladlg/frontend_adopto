@@ -3,23 +3,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 8rem 2rem;
+  padding: 6rem 2rem;
   min-height: 95vh;
 }
 /* Title */
 .account-title {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.8rem;
   color: #111;
   text-transform: uppercase;
-  letter-spacing: 1.8px;
+  letter-spacing: 2px;
 }
 
 /* TABS */
 .account-tabs {
   display: flex;
-  gap: 4rem;
+  gap: 6rem;
   margin-right: 1.2rem;
   margin-bottom: 1.5rem;
 }
@@ -45,7 +45,7 @@
   padding: 2rem;
   margin-top: -1rem;
   margin-right: 4.2rem;
-  width: 338px;
+  width: 300px;
 }
 
 .account-form {
