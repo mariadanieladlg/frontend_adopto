@@ -1,0 +1,92 @@
+.aboutus-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 2rem 4rem;
+  font-family: "Cormorant Garamond", serif;
+  line-height: 1.8;
+}
+
+.aboutus-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.aboutus-text {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+.aboutus-highlight {
+  text-align: center;
+  font-size: 1.4rem;
+  font-style: italic;
+  margin-top: 8rem;
+  color: #444;
+}
+
+/* IMAGE SECTIONS */
+.aboutus-section {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin: 3rem 0;
+}
+
+.aboutus-section img {
+  width: 280px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px #114f5a;
+  object-fit: cover;
+}
+
+/* Left image, right text */
+.aboutus-section.left {
+  flex-direction: row;
+}
+
+/* Right image, left text */
+.aboutus-section.right {
+  flex-direction: row-reverse;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+.contact-title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.contact-links a {
+  color: #114f5a;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem; /* espaço entre ícone e texto */
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-links a:hover {
+  color: #0d3d47;
+  transform: scale(1.05);
+  text-decoration: underline;
+}

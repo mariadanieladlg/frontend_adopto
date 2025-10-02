@@ -1,5 +1,5 @@
 .home {
-  min-height: 95vh; /* full screen */
+  min-height: 64vh; /* full screen */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,4 +24,14 @@
   border-radius: 15px;
   object-fit: cover;
   box-shadow: 0 4px 16px #114f5a;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.photo-grid img.luxury-click {
+  transform: scale(1.15);
+  opacity: 0;
 }

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Nunito:wght@300;400;600&display=swap");
 
 :root {
-  --navbar-height: 150px;
+  --navbar-height: 120px;
   --page-gutter: 24px;
 }
 
@@ -16,8 +16,10 @@ body {
   font-size: 16px;
   line-height: 1.6;
   background-color: #fcf9f5;
-
   padding-top: var(--navbar-height);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 h1,
@@ -38,7 +40,6 @@ h1 {
 
 p {
   margin-bottom: 1rem;
-  color: #333;
 }
 
 .pet-grid {
