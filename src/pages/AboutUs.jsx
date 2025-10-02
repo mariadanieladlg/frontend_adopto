@@ -1,5 +1,5 @@
 import "./AboutUs.css";
-import Dani from "../assets/daniela.jpg";
+import Dani from "../assets/daniela.JPG";
 import Larissa from "../assets/larissa.jpg";
 
 // Ícones
