@@ -1,80 +1,47 @@
-import { useEffect, useState } from "react";
 import "./ProfilePage.css";
 
-const ProfilePage = () => {
-  const [user, setUser] = useState(null);
-  const [favorites, setFavorites] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  const token = localStorage.getItem("authToken"); // waits a token to get user data
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // GET USER INFO
-        const userRes = await fetch("/api/users/profile", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        if (!userRes.ok) throw new Error("Error on loading profile");
-        const userData = await userRes.json();
-        const normalizedUser =
-          userData.payload?.user ||
-          userData.payload ||
-          userData.user ||
-          userData;
-
-        setUser(normalizedUser);
-
-        // GET FAVORITES
-        const favRes = await fetch("/api/users/profile/favorites", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        if (favRes.ok) {
-          const favData = await favRes.json();
-          setFavorites(favData);
-        }
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [token]);
-
-  if (loading) return <p>Loading profile...</p>;
-  if (error) return <p style={{ color: "red" }}>{error}</p>;
-
+const ProfilePage = ({ user }) => {
   return (
     <div className="profile-page">
-      <h1>Profile</h1>
-
-      {/* PROFILE */}
-      <div className="profile-card">
-        <p>
-          <strong>Name:</strong> {user.name}
-        </p>
-        <p>
-          <strong>Email:</strong> {user.email}
-        </p>
-      </div>
-
-      {/* FAVORITES */}
-      <h2>Favorites</h2>
-      {favorites.length > 0 ? (
-        <div className="favorites-grid">
-          {favorites.map((pet) => (
-            <div key={pet.id} className="favorite-card">
-              <img src={pet.image} alt={pet.name} />
-              <p>{pet.name}</p>
-            </div>
-          ))}
+      {/* HEADER */}
+      <header className="profile-header">
+        <div className="profile-info">
+          <h1>{user?.username || "Guest User"}</h1>
+          <p className="profile-bio">
+            {user?.bio || "Welcome to your profile"}
+          </p>
         </div>
-      ) : (
-        <p>No favorites yet 🐾</p>
-      )}
+      </header>
+
+      {/* CONTENT */}
+      <div className="profile-layout">
+        {/* LEFT COLUMN */}
+        <section className="profile-details">
+          <h2>Account Details</h2>
+          <ul>
+            <li>
+              <strong>Email:</strong> {user?.email}
+            </li>
+            <li>
+              <strong>Joined:</strong>{" "}
+              {user?.createdAt
+                ? new Date(user.createdAt).toLocaleDateString()
+                : "N/A"}
+            </li>
+            <li>
+              <strong>Favorites:</strong> {user?.favorites?.length || 0}
+            </li>
+          </ul>
+        </section>
+
+        {/* RIGHT COLUMN */}
+        <aside className="profile-actions">
+          <h2>Quick Actions</h2>
+          <button className="lux-btn">Edit Profile</button>
+          <button className="lux-btn">My Pets</button>
+          <button className="lux-btn danger">Logout</button>
+        </aside>
+      </div>
     </div>
   );
 };

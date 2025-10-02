@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/Auth.context";
 
 const LoginForm = () => {
   const { login } = useAuthContext();
   const [body, setBody] = useState({ email: "", password: "" });
+  const navigate = useNavigate(); // render to home
 
   const handleChange = (e) => {
     setBody((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -11,7 +13,13 @@ const LoginForm = () => {
 
   return (
     <div className="account-content">
-      <form className="account-form" onSubmit={(e) => login(body, e)}>
+      <form
+        className="account-form"
+        onSubmit={async (e) => {
+          const ok = await login(body, e);
+          if (ok) navigate("/");
+        }}
+      >
         <label htmlFor="email">Email</label>
         <input
           className="input-field"

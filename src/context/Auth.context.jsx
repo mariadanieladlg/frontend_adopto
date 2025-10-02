@@ -49,11 +49,12 @@ const AuthProvider = ({ children }) => {
       if (response.status === 200 || response.status === 201) {
         localStorage.setItem("authToken", response.data.authToken);
         verify(response.data.authToken);
+        return true;
       }
-      return;
+      return false;
     } catch (error) {
       console.log(error);
-      return;
+      return false;
     }
   };
 

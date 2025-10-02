@@ -8,7 +8,7 @@ const AdminAccount = () => {
 
   return (
     <div className="account-page">
-      <h2 className="account-title">Admin Account</h2>
+      <h2 className="account-title">Account</h2>
 
       {/* TABS */}
       <div className="account-tabs">
