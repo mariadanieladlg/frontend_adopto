@@ -12,11 +12,15 @@
 }
 
 body {
-  font-family: "Nunito", sans-serif; /* Main Text */
+  font-family: "Nunito", sans-serif;
   font-size: 16px;
   line-height: 1.6;
   background-color: #fcf9f5;
   padding-top: var(--navbar-height);
+  min-height: 100vh;
+}
+
+.App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
