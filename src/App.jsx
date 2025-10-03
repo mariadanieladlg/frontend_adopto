@@ -12,7 +12,7 @@ import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
 import PetCardDetails from "./components/PetCardDetails.jsx";
 import Paw from "./pages/Paw";
-import { EditPage } from "./pages/EditPage.jsx";
+import EditPage from "./pages/EditPage.jsx";
 import "./App.css";
 
 const App = () => {
@@ -26,7 +26,7 @@ const App = () => {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/account" element={<AdminAccount />} />
         <Route path="/pets/:id" element={<PetCardDetails />} />
-        <Route path="/edit/:id" element={<EditPage />} />
+        <Route path="/edit" element={<EditPage />} />
         <Route path="/paw" element={<Paw />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="*" element={<NotFound />} />

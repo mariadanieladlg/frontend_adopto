@@ -14,11 +14,13 @@ const AuthProvider = ({ children }) => {
       return;
     }
     try {
-      const response = await api.get("/auth/verify");
+      const response = await api.get("/auth/verify", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
       if (response.status === 200) {
-        setUser(response.data.payload);
+        setUser(response.data.payload); //username and email
       }
-      return;
     } catch (error) {
       console.log(error);
       return;
@@ -32,12 +34,19 @@ const AuthProvider = ({ children }) => {
       const response = await api.post("/auth/signup", body);
 
       if (response.status === 201 || response.status === 200) {
+        localStorage.setItem("authToken", response.data.authToken);
+
+        setUser(response.data.payload);
+
+        verify(response.data.authToken);
+
         setToggle((prev) => !prev);
+        return true;
       }
-      return;
+      return false;
     } catch (error) {
       console.log(error);
-      return;
+      return false;
     }
   };
 
@@ -48,6 +57,9 @@ const AuthProvider = ({ children }) => {
       const response = await api.post("/auth/login", body);
       if (response.status === 200 || response.status === 201) {
         localStorage.setItem("authToken", response.data.authToken);
+
+        setUser(response.data.payload);
+
         verify(response.data.authToken);
         return true;
       }
@@ -58,20 +70,37 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  //DELETE
+  const deleteAccount = async (userId) => {
+    try {
+      const token = localStorage.getItem("authToken");
+      const response = await api.delete(`/users/${userId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (response.status === 200) {
+        logout();
+      }
+    } catch (error) {
+      console.log("Error deleting user:", error);
+    }
+  };
+
   // LOGOUT
   const logout = () => {
     localStorage.removeItem("authToken");
     setUser(null);
   };
 
-  // Carregar user se já existir token salvo
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     verify(token);
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, signup, logout }}>
+    <AuthContext.Provider
+      value={{ user, setUser, login, signup, logout, deleteAccount }}
+    >
       {children}
     </AuthContext.Provider>
   );
