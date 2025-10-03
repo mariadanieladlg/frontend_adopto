@@ -1,7 +1,7 @@
+// src/pages/PetCardDetails.jsx
 import { useEffect, useMemo, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import "./PetCardDetails.css";
-import axios from "axios";
 
 const API = "http://localhost:5005/pets";
 
@@ -42,10 +42,24 @@ export default function PetCardDetails() {
     return () => (alive = false);
   }, [id]);
 
+  // ======== IMAGEN: misma lógica que en PetCard.jsx =========
+  const rawImage = pet?.image ?? pet?.images;
+  let cover = "/placeholder-pet.jpg"; // mismo placeholder que en PetCard
+  let thumbs = [];
+
+  if (Array.isArray(rawImage)) {
+    cover = rawImage[0] || cover;
+    thumbs = rawImage.slice(1, 5).filter(Boolean);
+  } else if (typeof rawImage === "string" && rawImage.trim()) {
+    cover = rawImage.trim();
+  }
+  // ==========================================================
+
   const age = useMemo(
     () => formatAge(pet?.age_months ?? pet?.ageMonths),
     [pet]
   );
+
   const location = useMemo(
     () =>
       [
@@ -96,16 +110,6 @@ export default function PetCardDetails() {
       </div>
     );
   }
-  async function handleDelete() {
-    console.log("Delete click");
-    try {
-      const response = await axios.delete(`http://localhost:5005/pets/${id}`);
-      console.log(response.data);
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   return (
     <div className="petdetails-page">
@@ -123,17 +127,31 @@ export default function PetCardDetails() {
         <section className="card">
           <div className="hero">
             <img
-              src={pet.images?.[0] || "/placeholder-pet.jpg"}
-              alt={pet.name}
+              src={cover}
+              alt={pet?.name || "Pet"}
+              referrerPolicy="no-referrer"
+              onError={(e) => {
+                e.currentTarget.src = "/placeholder-pet.jpg";
+              }}
             />
           </div>
-          {Array.isArray(pet.images) && pet.images.length > 1 && (
+
+          {thumbs.length > 0 && (
             <div className="thumbs">
-              {pet.images.slice(1, 5).map((src, i) => (
-                <img key={i} src={src} alt={`${pet.name} ${i + 2}`} />
+              {thumbs.map((src, i) => (
+                <img
+                  key={i}
+                  src={src}
+                  alt={`${pet.name} ${i + 2}`}
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.src = "/placeholder-pet.jpg";
+                  }}
+                />
               ))}
             </div>
           )}
+
           {pet.video && (
             <div className="video">
               <video src={pet.video} controls />
@@ -178,6 +196,7 @@ export default function PetCardDetails() {
             )}
           </div>
 
+          {/* Solo info de contacto (sin botones) */}
           <div className="cta">
             <div className="contact-info">
               {pet.contact?.email && (
@@ -207,15 +226,6 @@ export default function PetCardDetails() {
                   </span>
                 </div>
               )}
-            </div>
-
-            <div className="actions">
-              <button className="btn danger" onClick={handleDelete}>
-                Delete
-              </button>
-              <Link className="btn" to={`/edit/${id}`}>
-                Edit
-              </Link>
             </div>
           </div>
         </aside>

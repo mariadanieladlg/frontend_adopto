@@ -25,8 +25,8 @@ const CatKittens = () => {
   }, []);
 
   return (
-    <div className="cat-kittens-page">
-      <h2 className="cat-kittens-title">Cats & Kittens</h2>
+    <div className="pet-list-page">
+      <h2 className="pet-list-title">CATS & KITTENS</h2>
 
       {loading ? (
         <p>Loading...</p>

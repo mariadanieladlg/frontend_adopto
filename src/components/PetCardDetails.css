@@ -126,14 +126,11 @@
   font-weight: 700;
 }
 
-/* CONTACT INFO + ACTIONS */
+/* CONTACT INFO */
 .cta {
-  display: grid;
-  gap: 12px;
-  margin-top: 16px;
+  margin-top: 16px; /* ya no hay botones, solo el bloque de contacto */
 }
 
-/* CONTACT INFO AS TEXT */
 .contact-info {
   display: grid;
   gap: 6px;
@@ -154,43 +151,8 @@
   color: #6a6773;
   font-weight: 500;
 }
-
 .contact-info .value {
   font-weight: 600;
-}
-
-/*(Delete/Edit) */
-.actions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.actions .btn {
-  flex: 1;
-  text-align: center;
-  padding: 12px 14px;
-  border-radius: 12px;
-  background: #222;
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.02s ease;
-}
-
-.actions .btn:hover {
-  opacity: 0.9;
-}
-
-.actions .btn:active {
-  transform: translateY(1px);
-}
-
-/* Red DELETE */
-.actions .btn.danger {
-  background: #b91c1c;
-  border: 1px solid #991b1b;
 }
 
 h2 {
