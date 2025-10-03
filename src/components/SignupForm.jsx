@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/Auth.context";
 
 const SignupForm = ({ setToggle }) => {
@@ -8,7 +9,7 @@ const SignupForm = ({ setToggle }) => {
     username: "",
     password: "",
   });
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setBody((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -17,7 +18,10 @@ const SignupForm = ({ setToggle }) => {
     <div className="account-content">
       <form
         className="account-form"
-        onSubmit={(e) => signup(body, setToggle, e)}
+        onSubmit={async (e) => {
+          const ok = await signup(body, setToggle, e);
+          if (ok) navigate("/profile");
+        }}
       >
         <label htmlFor="username">Full Name</label>
         <input type="text" name="username" onChange={handleChange} />

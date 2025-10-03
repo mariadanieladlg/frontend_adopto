@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   gap: 2rem;
+  font-size: 1.8rem;
   padding: 30px 20px;
   border-bottom: 1px solid #e5e7eb;
   margin-bottom: 40px;
@@ -24,23 +25,17 @@
   margin: 0;
 }
 
-.profile-bio {
-  margin-top: 8px;
-  font-size: 16px;
-  color: #4b5563;
-}
-
 /* LAYOUT */
 .profile-layout {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 30px;
+  gap: 40px;
 }
 
 .profile-details,
 .profile-actions {
   background: #fff;
-  padding: 24px;
+  padding: 26px;
   border-radius: 18px;
   box-shadow: 0 4px 20px rgba(17, 79, 90, 0.08);
 }
@@ -74,23 +69,27 @@
 .lux-btn {
   width: 100%;
   padding: 12px 18px;
-  margin-bottom: 12px;
   border: none;
-  border-radius: 14px;
-  background: #9c9fa4;
+  background: #114f5a;
   color: #fff;
   font-weight: 600;
   font-size: 15px;
   cursor: pointer;
   transition: background 0.3s ease;
+  margin-bottom: 12px; /* espaço padrão entre botões */
+}
+
+/* remove o espaço extra do último botão */
+.profile-actions .lux-btn:last-child {
+  margin-bottom: 0;
 }
 
 .lux-btn:hover {
-  background: #216674;
+  background: #0d3c45;
 }
 
 .lux-btn.danger {
-  background: #cd6666;
+  background: #267585;
 }
 
 .lux-btn.danger:hover {

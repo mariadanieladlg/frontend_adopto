@@ -1,35 +1,46 @@
+import { useAuthContext } from "../context/Auth.context";
+import { useNavigate } from "react-router-dom";
 import "./ProfilePage.css";
 
-const ProfilePage = ({ user }) => {
+const ProfilePage = () => {
+  const { user, logout, deleteAccount } = useAuthContext();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/account");
+  };
+
+  const handleDelete = async () => {
+    if (
+      window.confirm(
+        "Are you sure you want to delete your account? This action cannot be undone."
+      )
+    ) {
+      await deleteAccount(user._id);
+      navigate("/account");
+    }
+  };
+
   return (
     <div className="profile-page">
       {/* HEADER */}
       <header className="profile-header">
-        <div className="profile-info">
-          <h1>{user?.username || "Guest User"}</h1>
-          <p className="profile-bio">
-            {user?.bio || "Welcome to your profile"}
-          </p>
-        </div>
+        <h2>Welcome to your Profile</h2>
       </header>
 
       {/* CONTENT */}
       <div className="profile-layout">
         {/* LEFT COLUMN */}
         <section className="profile-details">
-          <h2>Account Details</h2>
           <ul>
             <li>
-              <strong>Email:</strong> {user?.email}
+              <strong>Name:</strong>{" "}
+              {user?.username ? ` ${user.username}` : "No name available"}
             </li>
             <li>
-              <strong>Joined:</strong>{" "}
-              {user?.createdAt
-                ? new Date(user.createdAt).toLocaleDateString()
-                : "N/A"}
-            </li>
-            <li>
-              <strong>Favorites:</strong> {user?.favorites?.length || 0}
+              <strong>Email:</strong>{" "}
+              {user?.email ? ` ${user.email}` : "No email available"}
             </li>
           </ul>
         </section>
@@ -37,9 +48,15 @@ const ProfilePage = ({ user }) => {
         {/* RIGHT COLUMN */}
         <aside className="profile-actions">
           <h2>Quick Actions</h2>
-          <button className="lux-btn">Edit Profile</button>
-          <button className="lux-btn">My Pets</button>
-          <button className="lux-btn danger">Logout</button>
+          <button className="lux-btn" onClick={() => navigate("/edit")}>
+            Edit
+          </button>
+          <button className="lux-btn danger" onClick={handleLogout}>
+            Logout
+          </button>
+          <button className="lux-btn danger" onClick={handleDelete}>
+            Delete Account
+          </button>
         </aside>
       </div>
     </div>
