@@ -51,11 +51,11 @@
 .profile-details ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 10;
 }
 
 .profile-details li {
-  margin-bottom: 12px;
+  margin-bottom: 20px;
   font-size: 15px;
   color: #374151;
 }
