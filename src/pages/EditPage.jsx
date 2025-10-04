@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useAuthContext } from "../context/Auth.context";
+import { useNavigate } from "react-router-dom";
 import { updateUser } from "../lib/userService";
 import "./EditPage.css";
 
 const EditProfile = () => {
   const { user, setUser } = useAuthContext();
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     username: user?.username || "",
     email: user?.email || "",
@@ -20,6 +22,7 @@ const EditProfile = () => {
       const response = await updateUser(form);
       setUser(response.data.payload); // atualiza no contexto
       alert("Profile updated successfully ");
+      navigate("/profile");
     } catch (error) {
       console.error(error);
       alert("Error updating profile");
